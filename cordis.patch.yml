@@ -1,0 +1,4 @@
+# DSH host service; the same package supplies the browser requirements View.
+- insert:
+    - id: req-workbench
+      name: '@dsh-community/dsh-req-workbench'

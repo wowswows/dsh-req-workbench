@@ -1,0 +1,13 @@
+# Keep prebuilt lib/ tracked: GitHub installs use it directly.
+node_modules/
+.build-*/
+*.tgz
+*.zip
+artifacts/
+verification/
+.env
+.env.*
+.credentials*
+*.log
+.DS_Store
+Thumbs.db

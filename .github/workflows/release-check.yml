@@ -1,0 +1,19 @@
+name: Check prebuilt plugin
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: node scripts/check-release.mjs
+      - run: mkdir -p artifacts && npm pack --ignore-scripts --pack-destination artifacts
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dsh-req-workbench-plugin
+          path: artifacts/*.tgz
+          if-no-files-found: error
